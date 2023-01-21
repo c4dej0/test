@@ -1,0 +1,73 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+      <h4>Registro Parqueo</h4>
+      <a href="#" routerLink="/binnacle/index" class="btn btn-primaryt">Atras</a>
+    </div>
+  
+    <hr/>
+  
+      <form [formGroup]="form" (ngSubmit)="submit()">
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="title">Placa:</label>
+                <input
+                  formControlName="plate"
+                  id="plate"
+                  type="text"
+                  class="form-control">
+                <div *ngIf="f.plate.touched && f.plate.invalid" class="alert alert-danger">
+                    <div *ngIf="f.plate.errors.required">*Plate is required.</div>
+                    <div *ngIf="f.plate.errors.pattern">*The plate must only contain letters.</div>
+                </div>
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="entry">Entrada:</label>
+                <input
+                  formControlName="entry"
+                  id="entry"
+                  type="datetime"
+                  class="form-control">
+                <div *ngIf="f.entry.touched && f.entry.invalid" class="alert alert-danger">
+                    <div *ngIf="f.entry.errors.required">*Entry is required.</div>
+                    <div *ngIf="f.entry.errors.pattern">*The entry must be a valid email address.</div>
+                </div>
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-6 ">
+              <label for="exit">Salida:</label>
+              <input
+                formControlName="exit"
+                id="exit"
+                type="datetime"
+                class="form-control">
+              <div *ngIf="f.exit.touched && f.exit.invalid" class="alert alert-danger">
+                  <div *ngIf="f.exit.errors.required">*Exit is required.</div>
+                  <div *ngIf="f.exit.errors.pattern">*The exit must be a valid exit address.</div>
+              </div>
+            </div>
+        </div>
+  
+          <div class="form-group row">
+              <div class="col-md-6 ">
+                <label for="amount">Monto:</label>
+                <input
+                  formControlName="amount"
+                  id="amount"
+                  type="number"
+                  class="form-control">
+                <div *ngIf="f.amount.touched && f.amount.invalid" class="alert alert-danger">
+                    <div *ngIf="f.amount.errors.required">*amount is required.</div>
+                    <div *ngIf="f.amount.errors.pattern">*The amount must only contain numbers.</div>
+                </div>
+              </div>
+          </div>
+          <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Guardar</button>
+      </form>
+  </div>

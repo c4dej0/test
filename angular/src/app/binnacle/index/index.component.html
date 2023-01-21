@@ -1,0 +1,32 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Parqueo</h4>
+      <!-- a routerLink="/binnacle/create" class="btn btn-success">Create nuevo registro</a -->
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>Placa</th>
+        <th>Entrada</th>
+        <th>Salida</th>
+        <th>Monto</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let binnacle of binnacles">
+        <td>{{ binnacle.id }}</td>
+        <td>{{ binnacle.plate }}</td>
+        <td>{{ binnacle.entry }}</td>
+        <td>{{ binnacle.exit }}</td>
+        <td>{{ binnacle.amount }}</td>
+        <td>
+          <!-- a href="#" [routerLink]="['/binnacle/', 'edit', binnacle.plate  ]" class="btn btn-primary">Edit</a -->
+          <button type="button" (click)="deleteBinnacle(binnacle.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+      
+    </table>
+ </section>

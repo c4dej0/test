@@ -1,0 +1,28 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+      <h4>Vehiculos</h4>
+      <!--a routerLink="/vehicle/create" class="btn btn-success">Nuevo registro </a-->
+    </div>
+
+    <br>
+    
+    <table class="table ">
+      <tr>
+        <th>ID</th>
+        <th>Placa</th>
+        <th>Tipo</th>
+        <th width="220px">Action</th>
+      </tr>
+      <tr *ngFor="let vehicle of vehicles">
+        <td>{{ vehicle.id }}</td>
+        <td>{{ vehicle.plate }}</td>
+        <td>{{ vehicle.type_id }}</td>    
+        <td>
+          <a href="#" [routerLink]="['/vehicle/', 'edit', vehicle.id  ]" class="btn btn-primary">Edit</a>
+          <button type="button" (click)="deleteBinnacle(vehicle.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+      
+    </table>
+ </section>

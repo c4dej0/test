@@ -1,0 +1,27 @@
+<div class="container">
+  
+    <div class="d-flex justify-content-between">
+      <h4>Registrar salida</h4>
+      <!--a href="#" routerLink="/binnacle/index" class="btn btn-primaryt">Back</a-->
+    </div>
+  
+    <hr>
+  
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group row">
+        <div class="col-md-6 ">
+          <label for="title">Placa:</label>
+          <input
+            formControlName="plate"
+            id="plate"
+            type="text"
+            class="form-control">
+          <div *ngIf="f.plate.touched && f.plate.invalid" class="alert alert-danger">
+            <div *ngIf="f.plate.errors.required">*Plate is required.</div>
+            <div *ngIf="f.plate.errors.pattern">*The plate must only contain letters.</div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Buscar</button>
+    </form>
+  </div>
